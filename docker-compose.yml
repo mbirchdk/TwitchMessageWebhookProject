@@ -131,7 +131,7 @@ services:
       org.label-schema.group: "monitoring"
 
   twitchMessageApi:
-        image: mbirchdk/twitch_webhook_api
+        image: mbirch/twitch_webhook_api
         ports:
             - "80:80"
         depends_on:
@@ -144,7 +144,7 @@ services:
         networks:
             - monitor-net
   twitch_message_sender : 
-        image: mbirchdk/twitch_message_sender
+        image: mbirch/twitch_message_sender
         depends_on:
             - twitchMessageApi 
         networks:
