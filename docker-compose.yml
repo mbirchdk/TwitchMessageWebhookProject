@@ -167,8 +167,3 @@ services:
             - ../environment/twitchClientSender.env            
         networks:
         - monitor-net
-        command: >
-          /bin/bash -c "
-            sleep 20;
-            nc -lk 0.0.0.0 8080;
-          "
