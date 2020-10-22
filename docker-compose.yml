@@ -143,16 +143,10 @@ services:
           "
         networks:
             - monitor-net
-  twitch_message_sender : 
-        image: mbirch/twitch_message_sender
-        depends_on:
-            - twitchMessageApi 
-        networks:
-        - monitor-net
   database:
         image: "postgres"
         environment:
-            POSTGRES_USER: "unicorn_user"
+            POSTGRES_USER: "admin"
             POSTGRES_PASSWORD: "admin"
             POSTGRES_DB: "TwitchMessageApiDB"
         networks:

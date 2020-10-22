@@ -1,0 +1,6 @@
+  twitch_message_sender : 
+        image: mbirch/twitch_message_sender
+        depends_on:
+            - twitchMessageApi 
+        networks:
+        - monitor-net
