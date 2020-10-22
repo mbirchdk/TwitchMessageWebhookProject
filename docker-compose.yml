@@ -155,3 +155,12 @@ services:
             - "5432:5432"
         networks:
         - monitor-net
+        
+  twitch_message_sender : 
+        image: mbirch/twitch_message_sender:latest
+        depends_on:
+            - twitchMessageApi
+        env_file:
+            - ../environment/twitchClientSender.env            
+        networks:
+        - monitor-net
