@@ -162,12 +162,8 @@ services:
         image: mbirch/twitch_message_sender:latest
         depends_on:
             - twitchmessageapi
-        restart: on-failure 
+        restart: always
         env_file:
             - ../environment/twitchClientSender.env            
         networks:
         - monitor-net
-        command: >
-          /bin/bash -c "
-            sleep 20;
-          "
