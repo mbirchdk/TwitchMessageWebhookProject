@@ -130,7 +130,7 @@ services:
     labels:
       org.label-schema.group: "monitoring"
 
-  twitchMessageApi:
+  twitchmessageapi:
         image: mbirch/twitch_webhook_api:latest
         environment:
             ASPNETCORE_ENVIRONMENT: "Production"
@@ -159,7 +159,7 @@ services:
   twitch_message_sender : 
         image: mbirch/twitch_message_sender:latest
         depends_on:
-            - twitchMessageApi
+            - twitchmessageapi
         env_file:
             - ../environment/twitchClientSender.env            
         networks:
