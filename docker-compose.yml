@@ -149,6 +149,8 @@ services:
             - monitor-net
   database:
         image: "postgres"
+        volumes:
+            - db-data:/var/lib/postgresql/data
         environment:
             POSTGRES_USER: "admin"
             POSTGRES_PASSWORD: "admin"
@@ -161,8 +163,6 @@ services:
         
   twitch_message_sender : 
         image: mbirch/twitch_message_sender:latest
-        volumes:
-            - db-data:/var/lib/postgresql/data
         depends_on:
             - twitchmessageapi
         restart: always
