@@ -136,7 +136,7 @@ services:
         environment:
             ASPNETCORE_ENVIRONMENT: "Production"
         ports:
-            - "80:80"
+            - "8393:80"
         depends_on:
             - database 
         restart: on-failure 
@@ -170,3 +170,14 @@ services:
             - ../environment/twitchClientSender.env            
         networks:
         - monitor-net
+  twitch_command_overlay_web : 
+        image: mbirch/twitchcommandoverlayweb:latest
+        environment:
+            ASPNETCORE_ENVIRONMENT: "Production"
+        ports:
+            - "80:80"
+        depends_on:
+            - twitchmessageapi 
+        restart: on-failure 
+        networks:
+            - monitor-net
